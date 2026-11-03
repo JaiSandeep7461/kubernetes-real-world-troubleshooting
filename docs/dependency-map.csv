@@ -1,0 +1,7 @@
+Failure pattern,Dependency 1,Dependency 2,Dependency 3,Dependency 4,Dependency 5
+Pod sandbox creation,kubelet,CRI,container runtime,CNI ADD,Linux namespaces/network interfaces
+Pod DNS failure,Pod resolver config,Service/Endpoint routing,CNI dataplane,UDP/TCP,node firewall/conntrack
+Ingress admission timeout,API server,webhook Service/Endpoints,network path,TLS/certificate,controller availability
+PVC pending,scheduler,PVC/PV binding,CSI provisioner,topology/AZ,node autoscaler simulation
+Node scale-down,Cluster Autoscaler,cordon/drain,eviction/PDB,graceful termination,cloud node-group termination
+Container UNKNOWN,kubelet status,CRI status,containerd task/shim,PID namespace/process reaping,kernel/systemd
