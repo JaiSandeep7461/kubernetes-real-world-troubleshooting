@@ -45,7 +45,9 @@ Prioritize comments, linked PRs, and maintainer explanations for KTR-0002, 0003,
 
 ### Pod-foundation coverage checkpoint
 
-There are currently **6 Pod-foundation records** in the main register (KTR-0015 through KTR-0020). This is an early batch, not the target of 20. Fourteen more qualifying Pod-foundation cases are still required before the first Pod module research gate is complete. The wider catalogue also contains cross-domain records, which are not counted toward this Pod-only target.
+The register now contains **20 Pod-foundation research records** (KTR-0015 through KTR-0034): 6 previously documented and 14 added in this research pass. This meets the 20-record discovery target, but it does **not** mean all 20 are confirmed upstream defects or lab-ready.
 
-No labs have started. Before a case enters the lab queue, check release applicability, reproduction safety, and whether the source is a confirmed product defect, configuration error, or operational symptom.
+The 14 new records include confirmed historical fixes, unresolved upstream reports, environment-dependent runtime issues, and lower-confidence candidates. In particular, KTR-0027, KTR-0033 and KTR-0034 remain candidates; KTR-0025 has an original reproduction that maintainers said no longer worked; KTR-0026 remains unresolved despite stale closure. Keep these evidence distinctions when filtering the register.
+
+No labs have started. The next step is a quality gate: re-check the weaker records, confirm release applicability and safety, then choose which cases deserve controlled reproduction. Do not force all 20 into labs just to hit a number.
 
