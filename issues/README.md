@@ -20,3 +20,16 @@ These 13 records are in the master CSV. Each entry links to the original upstrea
 
 ## Next validation work
 Prioritize comments, linked PRs, and maintainer explanations for KTR-0002, 0003, 0004, 0007–0012. Re-check current release relevance before selecting any reproduction. No labs have been started.
+
+
+## New Pod-foundation cases (first research pass)
+
+| Record | Upstream issue | Finding | Qualification |
+|---|---|---|---|
+| KTR-0015 | [kubernetes/kubernetes#119611](https://github.com/kubernetes/kubernetes/issues/119611) | Memory-backed emptyDir can consume node memory; maintainers recommend memory limits and quota enforcement. | Root cause/mitigation supported. Lab requires strict memory isolation; not yet approved to run. |
+| KTR-0016 | [containerd/containerd#8197](https://github.com/containerd/containerd/issues/8197) | CNI cached-result decoding can block sandbox teardown and leave Pods Terminating; libcni fix lineage identified. | Release applicability varies; safe reproduction needs disposable Linux VM and rollback. |
+
+### Kept out of the 150 for now
+- [kubernetes/kubernetes#72593](https://github.com/kubernetes/kubernetes/issues/72593): ReplicaSet hot-loop when kubelet rejects Pods for unsafe sysctls. PR #130411 proposed a partial cold-loop mitigation but was not merged in the fetched snapshot. Track as an unresolved ReplicaSet candidate, not a solved case.
+- [kubernetes/kubernetes#106682](https://github.com/kubernetes/kubernetes/issues/106682): exec liveness-probe errors can be discarded rather than counted as failures. A proposed feature-gated PR is under discussion; behavior and release status need validation. Not counted as a solved case.
+- [kubernetes/kubernetes#51835](https://github.com/kubernetes/kubernetes/issues/51835): "Pods stuck Terminating" is a broad umbrella report with multiple unrelated causes; unsuitable as one reproducible case. Use narrowly scoped reports instead.
