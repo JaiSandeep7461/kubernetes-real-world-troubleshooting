@@ -48,3 +48,5 @@ See the CSV register and documentation for record-level details.
 ## Learning roadmap
 
 The ordered 150-case plan is documented in [`docs/150-case-learning-roadmap.md`](docs/150-case-learning-roadmap.md). The initial source-linked case catalogue is in [`issues/README.md`](issues/README.md), with detailed cases under `issues/` and the searchable register in `data/issue-register.csv`.
+
+The Pod-focused research screening backlog is in [`docs/pod-module-research-backlog.md`](docs/pod-module-research-backlog.md). These are screened leads, not all accepted 150-case records.
