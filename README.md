@@ -44,3 +44,7 @@ The initial batch contains 13 source-validated GitHub issues. Root-cause confide
 6. Review collection coverage before selecting any lab.
 
 See the CSV register and documentation for record-level details.
+
+## Learning roadmap
+
+The ordered 150-case plan is documented in [`docs/150-case-learning-roadmap.md`](docs/150-case-learning-roadmap.md). The initial source-linked case catalogue is in [`issues/README.md`](issues/README.md), with detailed cases under `issues/` and the searchable register in `data/issue-register.csv`.
