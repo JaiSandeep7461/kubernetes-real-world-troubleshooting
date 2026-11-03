@@ -33,3 +33,19 @@ Prioritize comments, linked PRs, and maintainer explanations for KTR-0002, 0003,
 - [kubernetes/kubernetes#72593](https://github.com/kubernetes/kubernetes/issues/72593): ReplicaSet hot-loop when kubelet rejects Pods for unsafe sysctls. PR #130411 proposed a partial cold-loop mitigation but was not merged in the fetched snapshot. Track as an unresolved ReplicaSet candidate, not a solved case.
 - [kubernetes/kubernetes#106682](https://github.com/kubernetes/kubernetes/issues/106682): exec liveness-probe errors can be discarded rather than counted as failures. A proposed feature-gated PR is under discussion; behavior and release status need validation. Not counted as a solved case.
 - [kubernetes/kubernetes#51835](https://github.com/kubernetes/kubernetes/issues/51835): "Pods stuck Terminating" is a broad umbrella report with multiple unrelated causes; unsuitable as one reproducible case. Use narrowly scoped reports instead.
+
+## Additional Pod-foundation cases (second research pass)
+
+| Record | Upstream issue | Finding | Evidence / caveat |
+|---|---|---|---|
+| KTR-0017 | [kubernetes/kubernetes#136910](https://github.com/kubernetes/kubernetes/issues/136910) | After kubelet restart, a regular container can fail to restart when a restartable init sidecar with startupProbe is running. | Root cause documented in [merged PR #137146](https://github.com/kubernetes/kubernetes/pull/137146). Verify target release/backport. |
+| KTR-0018 | [kubernetes/kubernetes#128544](https://github.com/kubernetes/kubernetes/issues/128544) | Missing imagePullSecret warning spam despite successful image pull. | [PR #138432](https://github.com/kubernetes/kubernetes/pull/138432) merged; warning now tied to actual image pull failure. |
+| KTR-0019 | [kubernetes/kubernetes#110177](https://github.com/kubernetes/kubernetes/issues/110177) | kube-system Pods repeatedly restart with SandboxChanged on Ubuntu 22.04/containerd. | Multiple users report success after aligning SystemdCgroup and pause image; treat as environment-specific configuration guidance, not universal confirmed cause. |
+| KTR-0020 | [kubernetes/kubernetes#86776](https://github.com/kubernetes/kubernetes/issues/86776) | Container restart fails after OOMKilled; reporter traced it to a changed ConfigMap key and deleted mounted file. | Configuration root cause confirmed by reporter; historical Kubernetes 1.14/Docker environment, not a Kubernetes defect. |
+
+### Pod-foundation coverage checkpoint
+
+There are currently **6 Pod-foundation records** in the main register (KTR-0015 through KTR-0020). This is an early batch, not the target of 20. Fourteen more qualifying Pod-foundation cases are still required before the first Pod module research gate is complete. The wider catalogue also contains cross-domain records, which are not counted toward this Pod-only target.
+
+No labs have started. Before a case enters the lab queue, check release applicability, reproduction safety, and whether the source is a confirmed product defect, configuration error, or operational symptom.
+
